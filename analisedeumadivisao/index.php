@@ -13,6 +13,7 @@
        $divis=$_POST["divis"] ?? 1;
 
     ?>
+    
     <h1>Anatomia de uma divisão</h1>
 
     <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
