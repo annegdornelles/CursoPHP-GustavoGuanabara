@@ -30,7 +30,7 @@
 
     <?php
        $inteiro = intdiv($salario, $sminimo);
-       $frac = $salario - $sminimo;
+       $frac = $salario - ($sminimo*$inteiro);
 
        echo "O salário de ".numfmt_format_currency($padrao, $salario, "BRL")." reais equivale a $inteiro salários mínimos";
 
