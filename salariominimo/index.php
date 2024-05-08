@@ -6,17 +6,9 @@
     <title>Quantos salários mínimos seu salário equivale?</title>
 </head>
 <body>
-    <?php
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $salario = $_POST["salario"];
-        $sminimo = 1412;
-        $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
-    ?>
-
     <h1>Quantos salários mínimos seu salário equivale?</h1>
 
-    <form method="POST">
+    <form action ="<?=$_SERVER['PHP_SELF']?>" method="POST">
 
     <label for="salario">Insira seu salário:</label>
     <input type="number" id="salario" name="salario" step="0.001"><br><br>
@@ -29,6 +21,12 @@
     <h2>Resultados:</h2>
 
     <?php
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+       $salario = $_POST["salario"];
+       $sminimo = 1412;
+       $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
+
        $inteiro = intdiv($salario, $sminimo);
        $frac = $salario % $sminimo;
 
@@ -36,12 +34,12 @@
 
        echo "O salário de ".numfmt_format_currency($padrao, $salario, "BRL")." reais equivale a $inteiro salários mínimos";
 
-       for ($i=0;$i<10;$i++){
-       if ($salario % $sminimo !=$i){
-          echo " e ".numfmt_format_currency($padrao, $frac, "BRL")." reais";
+       /*for ($i=0;$i<10;$i++){
+       if ($salario % $sminimo !=$i){*/
+          echo " e ".numfmt_format_currency($padrao, $frac, "BRL")." reais";//ou fazer por number_formart
        }
-    }
-}
+    /*}
+}*/
     
     ?>
 </body>
