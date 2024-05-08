@@ -11,6 +11,7 @@
     <form action ="<?=$_SERVER['PHP_SELF']?>" method="POST">
 
     <label for="salario">Insira seu salário:</label>
+    
     <input type="number" id="salario" name="salario" step="0.001"><br><br>
 
     <input type="submit" value="Calcular">
